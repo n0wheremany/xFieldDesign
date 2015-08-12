@@ -49,7 +49,7 @@ if (isset($addtype) and $addtype == "addnews") {
     $add_id = (isset($_REQUEST['id'])) ? intval($_REQUEST['id']) : '';
     $p_name = urlencode($member_id['name']);
 
-	if(config['version_id'] >= '10.5') {
+	if($config['version_id'] >= '10.5') {
 	
     if ($is_logged and ($user_group[$member_id['user_group']]['allow_image_upload'] or $user_group[$member_id['user_group']]['allow_file_upload'])) {
         $image_upload          = "<b id=\"b_up\" class=\"bb-btn\" onclick=\"dle_image_upload( '{$p_name}', '{$add_id}' ); return false;\" title=\"{$lang['bb_t_up']}\"></b>";
