@@ -52,8 +52,11 @@ if ($config['allow_site_wysiwyg']) {
  
 // если редактирование
 if ($id > 0) {
-    $row        = $db->super_query("SELECT category, xfields FROM " . PREFIX . "_post WHERE id = '{$id}'");
-    $val_xfield = xfieldsdataload($row['xfields']);
+	global $row;
+	if(!isset($row) or !is_array($row)){
+		$row        = $db->super_query("SELECT category, xfields FROM " . PREFIX . "_post WHERE id = '{$id}'");
+	}
+    	$val_xfield = xfieldsdataload($row['xfields']);
 }
 $flag = false;
 
